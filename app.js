@@ -7,6 +7,7 @@ const contactRoutes = require('./routes/contact');
 const successRoutes = require('./routes/success');
 const path = require('path')
 
+const errorControllers = require('./controllers/error')
 
 const app =express()
 
@@ -19,9 +20,7 @@ app.use(contactRoutes);
 app.use(shopRoutes);
 
 
-app.use((req,res,next)=>{
-    res.status(404).sendFile(path.join(__dirname,'views','page-error.html'))
-})
+app.use(errorControllers.errorControllers)
 
 
 app.listen(3000)

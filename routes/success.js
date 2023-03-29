@@ -1,11 +1,10 @@
 const express = require('express');
-const path = require('path');
 const router = express.Router();
-const rootDir = require('../util/path');
+
+const successController = require('../controllers/success')
 
 
-router.get('/success',(req,res,next)=>{
-    res.send('<h1>Your Form Filled SuccesFully.....</h1>')
-})
+
+router.get('/success',successController.successController)
 
 module.exports = router
